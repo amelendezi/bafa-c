@@ -1,0 +1,27 @@
+{
+  "name": "bafa-c",
+  "version": "1.0.0",
+  "description": "Bafa Client Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amelendezi/bafa-c.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amelendezi/bafa-c/issues"
+  },
+  "homepage": "https://github.com/amelendezi/bafa-c#readme",
+  "dependencies": {
+    "loadash": "0.0.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "webpack": "^3.1.0"
+  }
+}
