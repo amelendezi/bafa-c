@@ -1,4 +1,11 @@
+@font-face{
+    font-family: 'Junction';
+    src: url('./Junction.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
 .hello {
-    color : red;
-    /*background: url('./home.png');*/
+    color : blue;
+    font-family: 'Junction';    
 }

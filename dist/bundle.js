@@ -73,7 +73,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_png__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_png__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__home_png__);
 
 
@@ -81,13 +81,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 function component() {
   var element = document.createElement('div');  
-  element.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['Hello', 'webpack'], ' ');
+  element.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['This', 'is','a','sample','text','using','the','font','Junction.'], ' ');
   element.classList.add('hello');
 
-
+  /*
   var homeIcon = new Image();
-  homeIcon.src = __WEBPACK_IMPORTED_MODULE_2__home_png___default.a;
+  homeIcon.src = HomeIcon;
   element.appendChild(homeIcon);
+  */
 
   return element;
 }
@@ -17256,7 +17257,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(7)(content, options);
+var update = __webpack_require__(8)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -17281,7 +17282,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".hello {\r\n    color : red;\r\n    /*background: url('./home.png');*/\r\n}", ""]);
+exports.push([module.i, "@font-face{\r\n    font-family: 'Junction';\r\n    src: url(" + __webpack_require__(7) + ") format('woff');\r\n    font-weight: 600;\r\n    font-style: normal;\r\n}\r\n\r\n.hello {\r\n    color : blue;\r\n    font-family: 'Junction';    \r\n}", ""]);
 
 // exports
 
@@ -17372,6 +17373,12 @@ function toComment(sourceMap) {
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = __webpack_require__.p + "d4d6ec70f8e721fe38e975d51bcc7ae3.woff";
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
@@ -17415,7 +17422,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(8);
+var	fixUrls = __webpack_require__(9);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -17728,7 +17735,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 
@@ -17823,7 +17830,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fdd6f51677ca306fbdaf9262b09224e0.png";
