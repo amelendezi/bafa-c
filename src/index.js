@@ -1,12 +1,5 @@
 import _ from 'lodash';
-import printMe from './print.js';
-import 'jquery';
+import init from './initializer.js';
 
-function load() {
-  var element = document.createElement('div');
-  element.setAttribute('id', 'main');    
-  return element;
-}
-
-document.body.appendChild(load());
-$('#main').html("This was set by jQuery");
+console.log('Start point of the application.');
+init.initialize;

@@ -5,8 +5,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
  
 module.exports = {
   entry: { 
-    app: './src/index.js',     
-    print:'./src/print.js'
+    app: './src/index.js'
   },
   plugins : [      
     new HtmlWebpackPlugin({
@@ -19,7 +18,8 @@ module.exports = {
       exclude: ['shared.js']
     }),
     new webpack.ProvidePlugin({
-      $ : 'jquery'
+      $ : 'jquery',
+      maquette : 'maquette'
     }),
   ],
   output: {
