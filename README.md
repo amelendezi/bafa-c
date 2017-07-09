@@ -1,4 +1,4 @@
 # bafa-c
 Bafa Client Application
 
-This is a client application built in JavaScript using an MVC approach with the use of some libraries like RequireJS and MaquetteJs.
+This is a sample application mainly used to tryout some technologies: nodejs, webpack and maquettejs.
