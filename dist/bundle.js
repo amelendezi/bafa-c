@@ -73,6 +73,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_png__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__home_png__);
+
 
 
 
@@ -80,6 +83,12 @@ function component() {
   var element = document.createElement('div');  
   element.innerHTML = __WEBPACK_IMPORTED_MODULE_0_lodash___default.a.join(['Hello', 'webpack'], ' ');
   element.classList.add('hello');
+
+
+  var homeIcon = new Image();
+  homeIcon.src = __WEBPACK_IMPORTED_MODULE_2__home_png___default.a;
+  element.appendChild(homeIcon);
+
   return element;
 }
 
@@ -17272,7 +17281,7 @@ exports = module.exports = __webpack_require__(6)(undefined);
 
 
 // module
-exports.push([module.i, ".hello {\r\n    color : red;\r\n}", ""]);
+exports.push([module.i, ".hello {\r\n    color : red;\r\n    /*background: url('./home.png');*/\r\n}", ""]);
 
 // exports
 
@@ -17812,6 +17821,12 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fdd6f51677ca306fbdaf9262b09224e0.png";
 
 /***/ })
 /******/ ]);
