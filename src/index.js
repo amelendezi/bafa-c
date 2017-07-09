@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import './style.css';
 import HomeIcon from './home.png';
+import xmlData from './data.xml';
 
 function component() {
   var element = document.createElement('div');  
@@ -13,6 +14,7 @@ function component() {
   element.appendChild(homeIcon);
   */
 
+  console.log(xmlData);
   return element;
 }
 
