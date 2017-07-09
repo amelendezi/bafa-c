@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
  
@@ -16,7 +17,10 @@ module.exports = {
       verbose: true,
       dry: false,
       exclude: ['shared.js']
-    })
+    }),
+    new webpack.ProvidePlugin({
+      $ : 'jquery'
+    }),
   ],
   output: {
     filename: '[name].bundle.js',

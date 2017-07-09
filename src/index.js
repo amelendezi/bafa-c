@@ -1,17 +1,12 @@
 import _ from 'lodash';
 import printMe from './print.js';
+import 'jquery';
 
-function component() {
-  var element = document.createElement('div');    
-  var btn = document.createElement('button');
-
-  element.innerHTML = _.join(['This', 'is','a','sample','text.'], ' ');
-
-  btn.innerHTML = 'Click me and check the console';
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
+function load() {
+  var element = document.createElement('div');
+  element.setAttribute('id', 'main');    
   return element;
 }
 
-document.body.appendChild(component());
+document.body.appendChild(load());
+$('#main').html("This was set by jQuery");
