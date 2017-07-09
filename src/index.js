@@ -1,20 +1,16 @@
 import _ from 'lodash';
-import './style.css';
-import HomeIcon from './home.png';
-import xmlData from './data.xml';
+import printMe from './print.js';
 
 function component() {
-  var element = document.createElement('div');  
-  element.innerHTML = _.join(['This', 'is','a','sample','text','using','the','font','Junction.'], ' ');
-  element.classList.add('hello');
+  var element = document.createElement('div');    
+  var btn = document.createElement('button');
 
-  /*
-  var homeIcon = new Image();
-  homeIcon.src = HomeIcon;
-  element.appendChild(homeIcon);
-  */
+  element.innerHTML = _.join(['This', 'is','a','sample','text.'], ' ');
 
-  console.log(xmlData);
+  btn.innerHTML = 'Click me and check the console';
+  btn.onclick = printMe;
+
+  element.appendChild(btn);
   return element;
 }
 

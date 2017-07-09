@@ -1,44 +1,30 @@
 var path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+ 
 module.exports = {
-  entry: './src/index.js',
+  plugins: [
+    new CleanWebpackPlugin(['dist', 'build'], {
+      root: '/full/project/path',
+      verbose: true,
+      dry: false,
+      exclude: ['shared.js']
+    })
+  ]
+}
+module.exports = {
+  entry: { 
+    app: './src/index.js',     
+    print:'./src/print.js'
+  },
+  plugins : [      
+    new HtmlWebpackPlugin({
+      title : 'Output Management'
+    }),
+    new CleanWebpackPlugin(['dist'])
+  ],
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
-  }, 
-  module : {
-    rules : [
-        {
-            test : /\.css$/,
-            use : [
-                'style-loader',
-                'css-loader'
-            ]
-        },
-        {
-            test: /\.(png|svg|jpg|gif)$/,
-            use : [
-                'file-loader'
-            ]
-        },
-        {
-            test: /\.(woff|woff2|eot|ttf|otf)$/,
-            use : [
-                'file-loader'
-            ]
-        },
-        {
-            test : /\.(csv|tsv)$/,
-            use : [
-                'csv-loader'
-            ]
-        },
-        {
-            test :/\.xml$/,
-            use : [
-                'xml-loader'
-            ]
-        }
-    ]
-  }
+  },   
 };
