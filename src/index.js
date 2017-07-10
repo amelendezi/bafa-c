@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import init from './initializer.js';
+import { renderView } from './render.js';
 
-console.log('Start point of the application.');
-init.initialize;
+renderView();

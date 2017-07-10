@@ -875,12 +875,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__initializer_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__render_js__ = __webpack_require__(5);
 
 
 
-console.log('Start point of the application.');
-__WEBPACK_IMPORTED_MODULE_1__initializer_js__["a" /* default */].initialize;
+__WEBPACK_IMPORTED_MODULE_1__render_js__["a" /* renderView */]();
 
 /***/ }),
 /* 2 */
@@ -18034,22 +18033,26 @@ module.exports = function(module) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(maquette) {/* harmony export (immutable) */ __webpack_exports__["a"] = initialize;
+/* WEBPACK VAR INJECTION */(function(maquette) {/* harmony export (immutable) */ __webpack_exports__["a"] = renderView;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
 
-function initialize() {    
+
+function renderView() {
+
     var h = maquette.h;
     var projector = maquette.createProjector();
 
     function renderMaquette() {
-        return h('div.maquetteRender', 'Hello, this is printed with maquette');
+        return h('div.main', 'This is content being rendered by maquettejs!');
     }
 
     document.addEventListener('DOMContentLoaded', function () {
         projector.append(document.body, renderMaquette);
     });
 }
+
+
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ })

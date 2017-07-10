@@ -1,13 +1,16 @@
 import 'maquette';
-export default function initialize() {    
+
+export function renderView() {
+
     var h = maquette.h;
     var projector = maquette.createProjector();
 
     function renderMaquette() {
-        return h('div.maquetteRender', 'Hello, this is printed with maquette');
+        return h('div.main', 'This is content being rendered by maquettejs!');
     }
 
     document.addEventListener('DOMContentLoaded', function () {
         projector.append(document.body, renderMaquette);
     });
 }
+
