@@ -14,3 +14,16 @@ export function renderView() {
     });
 }
 
+export function renderAnotherView() {
+    var h = maquette.h;
+    var projector = maquette.createProjector();
+
+    function renderMaquette() {
+        return h('div.another', 'This is another view');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        projector.append(document.body, renderMaquette);
+    });
+}
+

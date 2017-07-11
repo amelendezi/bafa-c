@@ -1,0 +1,18 @@
+.header {
+    width: 96%;
+    height: fit-content;  
+    padding: 20px;        
+    background-color: #cce6ff;
+    color: #333333;              
+}
+
+.title{    
+    font-size: 32px;    
+    color: #1a1a1a;    
+    font-family: Helvetica, Arial, Helvetica, sans-serif;
+    float: left;
+}
+
+.subtitle {
+    float: left;
+}

@@ -1,4 +1,4 @@
 import _ from 'lodash';
-import { renderView } from './render.js';
+import { loadHeader } from './js/header/header.js'
 
-renderView();
+loadHeader();
