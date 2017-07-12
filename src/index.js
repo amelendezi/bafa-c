@@ -1,4 +1,4 @@
 import _ from 'lodash';
-import { loadHeader } from './js/header/header.js'
+import { loadHomePage } from './js/home.js';
 
-loadHeader();
+loadHomePage();

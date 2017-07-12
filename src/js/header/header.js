@@ -1,19 +1,21 @@
-import 'maquette';
 import './header.css';
+// import { createLink } from '../common/link/link.js';
 
-export function loadHeader() {
+export function loadHeader(h) {
+    return h('div#header', [loadTitle(h), loadSubtitle(h)]);
+}
 
-    var h = maquette.h;
-    var projector = maquette.createProjector();
+function loadTitle(h) {
+    return h('div#title', 'BAFA Client Application');
+}
 
-    function renderMaquette() {
-        return h('div.header', [
-            h('div.title', 'Bafa Client Application'),
-            h('div.subtitle','This is a sample application used to test out the javascript library Maquettejs.')
-        ]);
-    }
+function loadSubtitle(h) {
+    return h('div#subtitle', [
+        'Sample application that is testing the Maquettejs library developed by Johan Gorter. You can see the main website for this library at ',
+        createLink(h, 'http://maquettejs.org', 'Maquettejs'),
+        '. Here you can find tutorials and other resources.']);
+}
 
-    document.addEventListener('DOMContentLoaded', function () {
-        projector.append(document.body, renderMaquette);
-    });
+function createLink(h, link, name) {
+    return h('a', { href: link }, name);
 }

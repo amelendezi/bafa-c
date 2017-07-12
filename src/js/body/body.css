@@ -1,0 +1,10 @@
+#body {
+    width: 75%;
+    height: fit-content;
+    padding: 20px;
+    padding-top: 40px;    
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px dotted #cccccc;
+    text-align: center;
+}

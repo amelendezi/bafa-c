@@ -1,18 +1,26 @@
-.header {
-    width: 96%;
-    height: fit-content;  
-    padding: 20px;        
-    background-color: #cce6ff;
-    color: #333333;              
+#header {
+    width: 75%;
+    height: 200px;    
+    padding: 20px;
+    padding-top: 40px;    
+    margin: 20px;
+    border: 1px dotted #cccccc;
+    text-align: center;
 }
 
-.title{    
-    font-size: 32px;    
-    color: #1a1a1a;    
+#title{
+    color: #bf6318;
     font-family: Helvetica, Arial, Helvetica, sans-serif;
-    float: left;
+    font-size: 24px;
+    font-weight: bold;    
 }
 
-.subtitle {
-    float: left;
+#subtitle{
+    color: #333333;
+    font-family: Helvetica, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    margin-top: 35px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 20px;    
 }
