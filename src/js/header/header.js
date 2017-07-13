@@ -1,17 +1,18 @@
 import './header.css';
+import { createTitle } from '../controls/title/title.js';
+import { createSubtitle } from '../controls/subtitle/subtitle.js';
+import { createButton } from '../controls/button/button.js';
 
-export function loadHeader(h) {
-    return h('div#header', [loadTitle(h), loadSubtitle(h), loadButton(h)]);
+let model = {
+    title: createTitle('BAFA Sample Application'),
+    subtitle: createSubtitle('This is a sample application that is being created to test out best practices for creating frontend applications with the virtual dom library Maquettejs.'),
+    button : createButton('Console Say Hello!', function() {
+        console.log('Hello!');
+    })
 }
 
-function loadTitle(h) {
-    return h('div#title', 'BAFA Client Application');
-}
-
-function loadSubtitle(h) {
-    return h('div#subtitle', ['Sample application that is testing the Maquettejs library developed by Johan Gorter.']);
-}
-
-function loadButton(h) {      
-    return h('button#toggle', {type :'button'}, 'Toggle Content');
-}
+export var headerSection = {
+    renderMaquette: function (h) {
+        return h('div#header', [model.title.renderMaquette(h), model.subtitle.renderMaquette(h)], model.button.renderMaquette(h));
+    }
+};

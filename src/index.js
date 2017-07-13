@@ -1,8 +1,4 @@
 import _ from 'lodash';
-import { loadHomePage } from './js/home.js';
+import { main } from './js/main.js';
 
-loadHomePage();
-
-document.getElementById("toggle").addEventListener("click", function () {
-    console.log('Button was clicked');
-});
+main();

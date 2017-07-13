@@ -1,18 +1,4 @@
-#header {
-    width: 75%;
-    height: 200px;    
-    padding: 20px;
-    padding-top: 40px;    
-    margin: 20px;
-    border: 1px dotted #cccccc;
-    text-align: center;
-}
-
-.btn{
-    margin-top: 30px;
-}
-
-button {
+.btn {
     padding: 0.7rem 1.2rem;
     color: #28aadc;
     background-color: #fff;
@@ -23,8 +9,4 @@ button {
     border: .2rem solid #28aadc;
     -webkit-transition: color .3s,border .3s;
     transition: color .3s,border .3s;
-}
-
-button:active {
-    outline: none;
 }
