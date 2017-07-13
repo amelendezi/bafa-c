@@ -1,8 +1,7 @@
 import './header.css';
-// import { createLink } from '../common/link/link.js';
 
 export function loadHeader(h) {
-    return h('div#header', [loadTitle(h), loadSubtitle(h)]);
+    return h('div#header', [loadTitle(h), loadSubtitle(h), loadButton(h)]);
 }
 
 function loadTitle(h) {
@@ -10,12 +9,9 @@ function loadTitle(h) {
 }
 
 function loadSubtitle(h) {
-    return h('div#subtitle', [
-        'Sample application that is testing the Maquettejs library developed by Johan Gorter. You can see the main website for this library at ',
-        createLink(h, 'http://maquettejs.org', 'Maquettejs'),
-        '. Here you can find tutorials and other resources.']);
+    return h('div#subtitle', ['Sample application that is testing the Maquettejs library developed by Johan Gorter.']);
 }
 
-function createLink(h, link, name) {
-    return h('a', { href: link }, name);
+function loadButton(h) {      
+    return h('button#toggle', {type :'button'}, 'Toggle Content');
 }

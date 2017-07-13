@@ -1322,6 +1322,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_1__js_home_js__["a" /* loadHomePage */]();
 
+document.getElementById("toggle").addEventListener("click", function () {
+    console.log('Button was clicked');
+});
+
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18494,8 +18498,7 @@ function loadHomePage() {
 
     document.addEventListener('DOMContentLoaded', function () {
         projector.append(document.body, renderMaquette);
-    });
-
+    });    
 }
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
@@ -18508,10 +18511,9 @@ function loadHomePage() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_css__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__header_css__);
 
-// import { createLink } from '../common/link/link.js';
 
 function loadHeader(h) {
-    return h('div#header', [loadTitle(h), loadSubtitle(h)]);
+    return h('div#header', [loadTitle(h), loadSubtitle(h), loadButton(h)]);
 }
 
 function loadTitle(h) {
@@ -18519,14 +18521,11 @@ function loadTitle(h) {
 }
 
 function loadSubtitle(h) {
-    return h('div#subtitle', [
-        'Sample application that is testing the Maquettejs library developed by Johan Gorter. You can see the main website for this library at ',
-        createLink(h, 'http://maquettejs.org', 'Maquettejs'),
-        '. Here you can find tutorials and other resources.']);
+    return h('div#subtitle', ['Sample application that is testing the Maquettejs library developed by Johan Gorter.']);
 }
 
-function createLink(h, link, name) {
-    return h('a', { href: link }, name);
+function loadButton(h) {      
+    return h('button#toggle', {type :'button'}, 'Toggle Content');
 }
 
 /***/ }),
@@ -18569,7 +18568,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "#header {\r\n    width: 75%;\r\n    height: 200px;    \r\n    padding: 20px;\r\n    padding-top: 40px;    \r\n    margin: 20px;\r\n    border: 1px dotted #cccccc;\r\n    text-align: center;\r\n}\r\n\r\n#title{\r\n    color: #bf6318;\r\n    font-family: Helvetica, Arial, Helvetica, sans-serif;\r\n    font-size: 24px;\r\n    font-weight: bold;    \r\n}\r\n\r\n#subtitle{\r\n    color: #333333;\r\n    font-family: Helvetica, Arial, Helvetica, sans-serif;\r\n    font-size: 14px;\r\n    margin-top: 35px;\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n    line-height: 20px;    \r\n}", ""]);
+exports.push([module.i, "#header {\r\n    width: 75%;\r\n    height: 200px;    \r\n    padding: 20px;\r\n    padding-top: 40px;    \r\n    margin: 20px;\r\n    border: 1px dotted #cccccc;\r\n    text-align: center;\r\n}\r\n\r\n#title{\r\n    color: #bf6318;\r\n    font-family: Helvetica, Arial, Helvetica, sans-serif;\r\n    font-size: 24px;\r\n    font-weight: bold;    \r\n}\r\n\r\n#subtitle{\r\n    color: #333333;\r\n    font-family: Helvetica, Arial, Helvetica, sans-serif;\r\n    font-size: 14px;\r\n    margin-top: 35px;\r\n    margin-left: 100px;\r\n    margin-right: 100px;\r\n    line-height: 20px;    \r\n}\r\n\r\n#toggle{\r\n    margin-top: 30px;\r\n}\r\n\r\nbutton {\r\n    padding: 0.7rem 1.2rem;\r\n    color: #28aadc;\r\n    background-color: #fff;\r\n    font-size: 0.7rem;\r\n    font-weight: 300;\r\n    text-transform: uppercase;\r\n    border-radius: 12rem;\r\n    border: .2rem solid #28aadc;\r\n    -webkit-transition: color .3s,border .3s;\r\n    transition: color .3s,border .3s;\r\n}\r\n\r\nbutton:active {\r\n    outline: none;\r\n}", ""]);
 
 // exports
 

@@ -24,3 +24,24 @@
     margin-right: 100px;
     line-height: 20px;    
 }
+
+#toggle{
+    margin-top: 30px;
+}
+
+button {
+    padding: 0.7rem 1.2rem;
+    color: #28aadc;
+    background-color: #fff;
+    font-size: 0.7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 12rem;
+    border: .2rem solid #28aadc;
+    -webkit-transition: color .3s,border .3s;
+    transition: color .3s,border .3s;
+}
+
+button:active {
+    outline: none;
+}

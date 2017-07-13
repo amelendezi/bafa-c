@@ -13,6 +13,5 @@ export function loadHomePage() {
 
     document.addEventListener('DOMContentLoaded', function () {
         projector.append(document.body, renderMaquette);
-    });
-
+    });    
 }
