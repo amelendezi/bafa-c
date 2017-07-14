@@ -1,4 +1,5 @@
 import './button.css';
+import { h } from 'maquette';
 
 /**
  * Creates a button
@@ -12,7 +13,7 @@ export var createButton = function (label, onClick) {
     }
 
     return {
-        renderMaquette: function (h) {
+        renderMaquette: function () {
             return h('button.btn', { onclick: handleClick }, label);
         }
     };

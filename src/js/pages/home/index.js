@@ -1,3 +1,4 @@
+import { h } from 'maquette';
 import { headerSection } from '../../header/header.js';
 import { bodySection } from './body.js';
 
@@ -6,8 +7,8 @@ import { bodySection } from './body.js';
  */
 export var homePage = {
 
-    renderMaquette: function (h) {
-        return h('h1', headerSection.renderMaquette(h), bodySection.renderMaquette(h));
+    renderMaquette: function () {
+        return h('h1', headerSection.renderMaquette(), bodySection.renderMaquette());
     }
 
 }

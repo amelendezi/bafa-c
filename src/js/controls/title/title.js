@@ -1,4 +1,5 @@
 import './title.css';
+import { h } from 'maquette';
 
 /**
  * Creates a title
@@ -6,7 +7,7 @@ import './title.css';
  */
 export var createTitle = function (text) {
     return {
-        renderMaquette: function (h) {
+        renderMaquette: function () {
             return h('h1.title', text);
         }
     }
