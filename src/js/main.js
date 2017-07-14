@@ -1,9 +1,7 @@
-import 'maquette';
+import {h} from 'maquette';
 import { homePage } from './pages/home/index.js';
  
 export function main() {
-
-    var h = maquette.h;
     var projector = maquette.createProjector();
 
     function renderMaquette() {
