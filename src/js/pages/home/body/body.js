@@ -1,15 +1,18 @@
 import './body.css';
 import { h } from 'maquette';
+import { request } from '../../../services/request.js';
 
-let model = {
-    message: 'This is the page body'
+var model = {
+    message: 'This is the page body',    
 }
 
+var clicked = true;
+
 export var load = () => {
-    model.message = 'You clicked!';
+    request.doSampleRequest(model);    
 };
 
-export var bodySection = {    
+export var bodySection = {        
     renderMaquette: function () {
         return h('div.body', model.message);
     }

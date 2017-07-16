@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1313,45 +1313,90 @@ function updateLink (link, options, obj) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return load; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return bodySection; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__body_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
+/* WEBPACK VAR INJECTION */(function(maquette) {/* harmony export (immutable) */ __webpack_exports__["a"] = getProjector;
+/* harmony export (immutable) */ __webpack_exports__["b"] = main;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__ = __webpack_require__(9);
 
 
 
-let model = {
-    message: 'This is the page body'
-}
+var projector = null;
 
-var load = () => {
-    model.message = 'You clicked!';
-};
-
-var bodySection = {    
-    renderMaquette: function () {
-        return __WEBPACK_IMPORTED_MODULE_1_maquette__["h"]('div.body', model.message);
+/**
+ * Gets a created projector. Implements a singelton pattern
+ * for the projector.
+ */
+function getProjector() {
+    if (projector === null) {
+        return maquette.createProjector();
     }
+    return projector;
 }
+
+/**
+ * This is the main entry point of the application. Basically
+ * it creates the root renderMaquette function.
+ */
+function main() {    
+    function renderMaquette() {
+        return __WEBPACK_IMPORTED_MODULE_0_maquette__["h"]('div.main', [__WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__["a" /* homePage */].renderMaquette()]);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        getProjector().append(document.body, renderMaquette);
+    });
+}
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
 /* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_main_js__ = __webpack_require__(8);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return load; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return bodySection; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__body_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_request_js__ = __webpack_require__(25);
 
 
 
-__WEBPACK_IMPORTED_MODULE_1__js_main_js__["a" /* main */]();
+
+var model = {
+    message: 'This is the page body',    
+}
+
+var clicked = true;
+
+var load = () => {
+    __WEBPACK_IMPORTED_MODULE_2__services_request_js__["a" /* request */].doSampleRequest(model);    
+};
+
+var bodySection = {        
+    renderMaquette: function () {
+        return __WEBPACK_IMPORTED_MODULE_1_maquette__["h"]('div.body', model.message);
+    }
+}
 
 /***/ }),
 /* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_main_js__ = __webpack_require__(3);
+
+
+
+__WEBPACK_IMPORTED_MODULE_1__js_main_js__["b" /* main */]();
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -18440,10 +18485,10 @@ __WEBPACK_IMPORTED_MODULE_1__js_main_js__["a" /* main */]();
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6), __webpack_require__(7)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(8)(module)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 var g;
@@ -18470,7 +18515,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -18498,47 +18543,6 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(maquette) {/* unused harmony export getProjector */
-/* harmony export (immutable) */ __webpack_exports__["a"] = main;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__ = __webpack_require__(9);
-
-
-
-var projector = null;
-
-/**
- * Gets a created projector. Implements a singelton pattern
- * for the projector.
- */
-function getProjector() {
-    if (projector === null) {
-        return maquette.createProjector();
-    }
-    return projector;
-}
-
-/**
- * This is the main entry point of the application. Basically
- * it creates the root renderMaquette function.
- */
-function main() {    
-    function renderMaquette() {
-        return __WEBPACK_IMPORTED_MODULE_0_maquette__["h"]('div.main', [__WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__["a" /* homePage */].renderMaquette()]);
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-        getProjector().append(document.body, renderMaquette);
-    });
-}
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
 /* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18547,7 +18551,7 @@ function main() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header_header_js__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__body_body_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__body_body_js__ = __webpack_require__(4);
 
 
 
@@ -18576,7 +18580,7 @@ var homePage = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controls_title_title_js__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__controls_subtitle_subtitle_js__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__controls_button_button_js__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__body_body_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__body_body_js__ = __webpack_require__(4);
 
 
 
@@ -18996,6 +19000,44 @@ exports.push([module.i, ".body {\r\n    width: 75%;\r\n    height: fit-content;\
 
 // exports
 
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return request; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_js__ = __webpack_require__(3);
+
+
+var load = (model) => {
+    
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', () => {        
+                
+        // Parse the response as JSON
+        var json = JSON.parse(xhr.responseText);
+
+        // We update the model
+        model.message = json['response']['message'];
+        
+        /**
+         * Up to this point, the value of model.message is correctly filled by the
+         * server message that is in the json. I was hoping that on the next render
+         * the value of model.message would be shown.
+         */
+
+        // Maquette requires the projector to re-render
+        __WEBPACK_IMPORTED_MODULE_0__main_js__["a" /* getProjector */]().scheduleRender();
+    });
+
+    xhr.open('GET', 'http://localhost/ServerSim/?requestId=001');
+    xhr.send();    
+}
+
+var request = {        
+    doSampleRequest: load
+}
 
 /***/ })
 /******/ ]);
