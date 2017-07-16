@@ -1,6 +1,6 @@
 import { h } from 'maquette';
-import { headerSection } from '../../header/header.js';
-import { bodySection } from './body.js';
+import { headerSection } from './header/header.js';
+import { bodySection } from './body/body.js';
 
 /**
  * Home Page composed of a header section and body section.
