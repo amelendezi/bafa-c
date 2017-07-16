@@ -6,9 +6,12 @@ var model = {
     message: 'This is the page body',    
 }
 
-var clicked = true;
-
 export var load = () => {
+
+    // When the button is pressed it calls this 
+    // functin. That calls the request that goes to 
+    // the server and the server responds with a message.
+
     request.doSampleRequest(model);    
 };
 
