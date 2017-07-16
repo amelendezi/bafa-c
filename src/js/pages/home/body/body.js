@@ -2,17 +2,16 @@ import './body.css';
 import { h } from 'maquette';
 import { request } from '../../../services/request.js';
 
-var model = {
+var model = {    
     message: 'This is the page body',    
 }
 
+var updateModel = (json) => {
+    model.message = json['response']['message'];
+};
+
 export var load = () => {
-
-    // When the button is pressed it calls this 
-    // functin. That calls the request that goes to 
-    // the server and the server responds with a message.
-
-    request.doSampleRequest(model);    
+    request.doSampleRequest(updateModel);    
 };
 
 export var bodySection = {        
