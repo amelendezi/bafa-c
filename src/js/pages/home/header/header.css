@@ -1,6 +1,6 @@
 #header {
     width: 75%;
-    height: 200px;    
+    height: 400px;    
     padding: 20px;
     padding-top: 40px;    
     margin: 20px;
@@ -10,6 +10,7 @@
 
 .btn{
     margin-top: 30px;
+    float: left;
 }
 
 button {

@@ -3,12 +3,10 @@ import { headerSection } from './header/header.js';
 import { bodySection } from './body/body.js';
 
 /**
- * Home Page composed of a header section and body section.
+ * HomePage composed of a header section and body section.
  */
 export var homePage = {
-
     renderMaquette: function () {
         return h('h1', headerSection.renderMaquette(), bodySection.renderMaquette());
     }
-
 }

@@ -18,7 +18,7 @@ export function getProjector() {
  * This is the main entry point of the application. Basically
  * it creates the root renderMaquette function.
  */
-export function main() {    
+export function main() {
     function renderMaquette() {
         return h('div.main', [homePage.renderMaquette()]);
     }

@@ -1,21 +1,23 @@
+import 'maquette';
 import { getProjector } from '../main.js';
+import './requestConfig.js';
 
-var load = (updateModel) => {
-    
+var load = (requestConfig) => {
+
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', () => {        
                 
         // Parse the response as JSON
         var json = JSON.parse(xhr.responseText);
-
+        
         // We update the model
-        updateModel(json);
-                
-        // Maquette requires the projector to re-render
-        getProjector().scheduleRender();
+        requestConfig.callback(json);
+        
+        // Schedule a render
+        getProjector().scheduleRender(); // This seems to not be working correctly.
     });
-
-    xhr.open('GET', 'http://localhost/ServerSim/?requestId=001');
+    
+    xhr.open(requestConfig.method, requestConfig.requestUrl);
     xhr.send();    
 }
 

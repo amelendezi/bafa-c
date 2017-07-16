@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -996,7 +996,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(13);
+var	fixUrls = __webpack_require__(14);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1317,7 +1317,7 @@ function updateLink (link, options, obj) {
 /* harmony export (immutable) */ __webpack_exports__["b"] = main;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__ = __webpack_require__(10);
 
 
 
@@ -1338,7 +1338,7 @@ function getProjector() {
  * This is the main entry point of the application. Basically
  * it creates the root renderMaquette function.
  */
-function main() {    
+function main() {
     function renderMaquette() {
         return __WEBPACK_IMPORTED_MODULE_0_maquette__["h"]('div.main', [__WEBPACK_IMPORTED_MODULE_1__pages_home_index_js__["a" /* homePage */].renderMaquette()]);
     }
@@ -1354,30 +1354,57 @@ function main() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return load; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return doSampleRequest1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return doSampleRequest2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return bodySection; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__body_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__body_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_request_js__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_request_js__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_requestConfig_js__ = __webpack_require__(5);
 
 
 
 
-var model = {    
-    message: 'This is the page body',    
+
+/**
+ * Main model for the body section.
+ */
+var model = {
+    message: 'This is the page body'    
 }
 
+/**
+ * Callback function for server request
+ * @param {*} json 
+ */
 var updateModel = (json) => {
-    model.message = json['response']['message'];
+    model.message = json['response']['message'];    
 };
 
-var load = () => {
-    __WEBPACK_IMPORTED_MODULE_2__services_request_js__["a" /* request */].doSampleRequest(updateModel);    
+/**
+ * Does a sample request 1 to the server and loads the model.
+ */
+var doSampleRequest1 = () => {
+    console.log('DoSampleRequest1');
+    var config = new __WEBPACK_IMPORTED_MODULE_3__services_requestConfig_js__["a" /* requestConfig */]('http://localhost/ServerSim/?requestId=001', 'GET', updateModel);
+    __WEBPACK_IMPORTED_MODULE_2__services_request_js__["a" /* request */].doSampleRequest(config);
 };
 
-var bodySection = {        
+/**
+ * Does a sample request 2 to the server and loads the model.
+ */
+var doSampleRequest2 = () => {
+    console.log('DoSampleRequest2');
+    var config = new __WEBPACK_IMPORTED_MODULE_3__services_requestConfig_js__["a" /* requestConfig */]('http://localhost/ServerSim/?requestId=002', 'GET', updateModel);
+    __WEBPACK_IMPORTED_MODULE_2__services_request_js__["a" /* request */].doSampleRequest(config);
+};
+
+/**
+ * BodySection of the page with rendering function
+ */
+var bodySection = {
     renderMaquette: function () {
         return __WEBPACK_IMPORTED_MODULE_1_maquette__["h"]('div.body', model.message);
     }
@@ -1388,8 +1415,30 @@ var bodySection = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+class requestConfig {
+    
+    /**
+     * Constructs a requestConfig
+     * @param {*} url : complete request url
+     * @param {*} method : GET / POST
+     * @param {*} callback : callback function with response data
+     */
+    constructor(url, method, callback) {
+        this.requestUrl = url;
+        this.method = method;
+        this.callback = callback;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = requestConfig;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_main_js__ = __webpack_require__(3);
 
@@ -1398,7 +1447,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 __WEBPACK_IMPORTED_MODULE_1__js_main_js__["b" /* main */]();
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -18487,10 +18536,10 @@ __WEBPACK_IMPORTED_MODULE_1__js_main_js__["b" /* main */]();
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7), __webpack_require__(8)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(8), __webpack_require__(9)(module)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -18517,7 +18566,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -18545,43 +18594,41 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return homePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header_header_js__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__header_header_js__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__body_body_js__ = __webpack_require__(4);
 
 
 
 
 /**
- * Home Page composed of a header section and body section.
+ * HomePage composed of a header section and body section.
  */
 var homePage = {
-
     renderMaquette: function () {
         return __WEBPACK_IMPORTED_MODULE_0_maquette__["h"]('h1', __WEBPACK_IMPORTED_MODULE_1__header_header_js__["a" /* headerSection */].renderMaquette(), __WEBPACK_IMPORTED_MODULE_2__body_body_js__["a" /* bodySection */].renderMaquette());
     }
-
 }
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return headerSection; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_css__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_css__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__header_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controls_title_title_js__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__controls_subtitle_subtitle_js__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__controls_button_button_js__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__controls_title_title_js__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__controls_subtitle_subtitle_js__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__controls_button_button_js__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__body_body_js__ = __webpack_require__(4);
 
 
@@ -18590,26 +18637,33 @@ var homePage = {
 
 
 
-let model = {
+/**
+ * Main model for the header section.
+ */
+var model = {
     title: __WEBPACK_IMPORTED_MODULE_2__controls_title_title_js__["a" /* createTitle */]('BAFA Sample Application'),
     subtitle: __WEBPACK_IMPORTED_MODULE_3__controls_subtitle_subtitle_js__["a" /* createSubtitle */]('This is a sample application that is being created to test out best practices for creating frontend applications with the virtual dom library Maquettejs.'),
-    button: __WEBPACK_IMPORTED_MODULE_4__controls_button_button_js__["a" /* createButton */]('Click this!', __WEBPACK_IMPORTED_MODULE_5__body_body_js__["b" /* load */])
+    button1: __WEBPACK_IMPORTED_MODULE_4__controls_button_button_js__["a" /* createButton */]('Request 1', __WEBPACK_IMPORTED_MODULE_5__body_body_js__["b" /* doSampleRequest1 */]),
+    button2: __WEBPACK_IMPORTED_MODULE_4__controls_button_button_js__["a" /* createButton */]('Request 2', __WEBPACK_IMPORTED_MODULE_5__body_body_js__["c" /* doSampleRequest2 */])
 }
 
+/**
+ * HeaderSection of the page with rendering function. Renders a title, subtitle and button.
+ */
 var headerSection = {
     renderMaquette: function () {
-        return __WEBPACK_IMPORTED_MODULE_1_maquette__["h"]('div#header', [model.title.renderMaquette(), model.subtitle.renderMaquette(), model.button.renderMaquette()]);
+        return __WEBPACK_IMPORTED_MODULE_1_maquette__["h"]('div#header', [model.title.renderMaquette(), model.subtitle.renderMaquette(), model.button1.renderMaquette(), model.button2.renderMaquette()]);
     }
 };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(12);
+var content = __webpack_require__(13);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18634,7 +18688,7 @@ if(false) {
 }
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -18642,13 +18696,13 @@ exports = module.exports = __webpack_require__(1)(undefined);
 
 
 // module
-exports.push([module.i, "#header {\r\n    width: 75%;\r\n    height: 200px;    \r\n    padding: 20px;\r\n    padding-top: 40px;    \r\n    margin: 20px;\r\n    border: 1px dotted #cccccc;\r\n    text-align: center;\r\n}\r\n\r\n.btn{\r\n    margin-top: 30px;\r\n}\r\n\r\nbutton {\r\n    padding: 0.7rem 1.2rem;\r\n    color: #28aadc;\r\n    background-color: #fff;\r\n    font-size: 0.7rem;\r\n    font-weight: 300;\r\n    text-transform: uppercase;\r\n    border-radius: 12rem;\r\n    border: .2rem solid #28aadc;\r\n    -webkit-transition: color .3s,border .3s;\r\n    transition: color .3s,border .3s;\r\n}\r\n\r\nbutton:active {\r\n    outline: none;\r\n}", ""]);
+exports.push([module.i, "#header {\r\n    width: 75%;\r\n    height: 400px;    \r\n    padding: 20px;\r\n    padding-top: 40px;    \r\n    margin: 20px;\r\n    border: 1px dotted #cccccc;\r\n    text-align: center;\r\n}\r\n\r\n.btn{\r\n    margin-top: 30px;\r\n    float: left;\r\n}\r\n\r\nbutton {\r\n    padding: 0.7rem 1.2rem;\r\n    color: #28aadc;\r\n    background-color: #fff;\r\n    font-size: 0.7rem;\r\n    font-weight: 300;\r\n    text-transform: uppercase;\r\n    border-radius: 12rem;\r\n    border: .2rem solid #28aadc;\r\n    -webkit-transition: color .3s,border .3s;\r\n    transition: color .3s,border .3s;\r\n}\r\n\r\nbutton:active {\r\n    outline: none;\r\n}", ""]);
 
 // exports
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 
@@ -18743,12 +18797,12 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createTitle; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title_css__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title_css__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__title_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__title_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
@@ -18768,13 +18822,13 @@ var createTitle = function (text) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(16);
+var content = __webpack_require__(17);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18799,7 +18853,7 @@ if(false) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -18813,12 +18867,12 @@ exports.push([module.i, ".title{\r\n    color: #bf6318;\r\n    font-family: Helv
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createSubtitle; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__subtitle_css__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__subtitle_css__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__subtitle_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__subtitle_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
@@ -18838,13 +18892,13 @@ var createSubtitle = function (text) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(19);
+var content = __webpack_require__(20);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18869,7 +18923,7 @@ if(false) {
 }
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -18883,12 +18937,12 @@ exports.push([module.i, ".subtitle{\r\n    color: #333333;\r\n    font-family: H
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createButton; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button_css__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button_css__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__button_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_maquette__);
@@ -18914,13 +18968,13 @@ var createButton = function (label, onClick) {
 }
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(22);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18945,7 +18999,7 @@ if(false) {
 }
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -18959,13 +19013,13 @@ exports.push([module.i, ".btn {\r\n    padding: 0.7rem 1.2rem;\r\n    color: #28
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(24);
+var content = __webpack_require__(25);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18990,7 +19044,7 @@ if(false) {
 }
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(undefined);
@@ -19004,30 +19058,35 @@ exports.push([module.i, ".body {\r\n    width: 75%;\r\n    height: fit-content;\
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return request; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__main_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_maquette___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_maquette__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__main_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__requestConfig_js__ = __webpack_require__(5);
 
 
-var load = (updateModel) => {
-    
+
+
+var load = (requestConfig) => {
+
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('load', () => {        
                 
         // Parse the response as JSON
         var json = JSON.parse(xhr.responseText);
-
+        
         // We update the model
-        updateModel(json);
-                
-        // Maquette requires the projector to re-render
-        __WEBPACK_IMPORTED_MODULE_0__main_js__["a" /* getProjector */]().scheduleRender();
+        requestConfig.callback(json);
+        
+        // Schedule a render
+        __WEBPACK_IMPORTED_MODULE_1__main_js__["a" /* getProjector */]().scheduleRender();
     });
-
-    xhr.open('GET', 'http://localhost/ServerSim/?requestId=001');
+    
+    xhr.open(requestConfig.method, requestConfig.requestUrl);
     xhr.send();    
 }
 
